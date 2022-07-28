@@ -3,7 +3,7 @@
 ## Backup
 
 ```BASH
-kubectl cp backup.sh chi-posthog-posthog-0-0-0:/tmp/backup.sh -n anyday-posthog
+kubectl cp backup.sh chi-posthog-posthog-0-0-0:/tmp/backup.sh -n [namespace]
 ```
 
 ```BASH
@@ -17,5 +17,5 @@ bash copy.sh
 ## Restore
 
 ```BASH
-kubectl cp chi-posthog-posthog-0-0-0:/tmp/posthog/sql posthog/sql -n anyday-posthog
+kubectl cp chi-posthog-posthog-0-0-0:/tmp/posthog/sql posthog/sql -n [namespace]
 ```
