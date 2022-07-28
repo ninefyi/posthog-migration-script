@@ -10,6 +10,10 @@ kubectl cp backup.sh chi-posthog-posthog-0-0-0:/tmp/backup.sh -n anyday-posthog
 cd /tmp/ | chomod +x /tmp/backup.sh | bash backup.sh
 ```
 
+```BASH
+bash copy.sh
+```
+
 ## Restore
 
 ```BASH
