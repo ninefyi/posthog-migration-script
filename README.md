@@ -1,21 +1,8 @@
 # How to use it
 
-## Backup
-
-```BASH
-kubectl cp backup.sh chi-posthog-posthog-0-0-0:/tmp/backup.sh -n [namespace]
-```
-
-```BASH
-cd /tmp/ | chomod +x /tmp/backup.sh | bash backup.sh
-```
-
-```BASH
-bash copy.sh
-```
-
-## Restore
-
-```BASH
-kubectl cp chi-posthog-posthog-0-0-0:/tmp/posthog/sql posthog/sql -n [namespace]
-```
+1. ```kubectl cp backup.sh chi-posthog-posthog-0-0-0:/tmp/backup.sh -n [namespace]```
+2. ```bash backup.sh```
+3. ```bash pod2local.sh```
+4. ```bash local2pod.sh```
+5. ```kubectl cp backup.sh chi-posthog-posthog-0-0-0:/tmp/restore.sh -n [namespace]``
+6. ```bash restore.sh```
