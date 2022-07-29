@@ -13,10 +13,10 @@ echo "Preparing copy from local to pod..."
 tables=$(ls -1 posthog/sql | sed -e 's/\..*$//')
 
 echo "Copying folder sql from local to pod..."
-kubectl cp ${SOURCE_BACKUP_LOCATION}/sql/ ${TARGET_BACKUP_LOCATION}/sql/ -n anyday-posthog
+kubectl cp ${SOURCE_BACKUP_LOCATION}/sql/ ${TARGET_BACKUP_LOCATION}/sql/ -n [namespace]
 
 for table in ${tables}; do
     echo "Copying table ${table} from local to pod..."
-    kubectl cp ${SOURCE_BACKUP_LOCATION}/data/${table} ${TARGET_BACKUP_LOCATION}/data/${table} -n anyday-posthog
+    kubectl cp ${SOURCE_BACKUP_LOCATION}/data/${table} ${TARGET_BACKUP_LOCATION}/data/${table} -n [namespace]
     echo "Table ${table} copied"
 done

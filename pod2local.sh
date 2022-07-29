@@ -9,12 +9,12 @@ mkdir -p posthog/data
 mkdir -p posthog/sql
 
 echo "Copying folder sql from local to pod..."
-kubectl cp ${SOURCE_BACKUP_LOCATION}/sql/ ${TARGET_BACKUP_LOCATION}/sql/ -n anyday-posthog
+kubectl cp ${SOURCE_BACKUP_LOCATION}/sql/ ${TARGET_BACKUP_LOCATION}/sql/ -n [namespace]
 
 tables=$(clickhouse-client --query "SELECT name FROM system.tables WHERE database = 'posthog' AND engine LIKE '%MergeTree'")
 
 for table in ${tables}; do
     echo "Copying table ${table} from pod to local..."
-    kubectl cp ${SOURCE_BACKUP_LOCATION}/data/${table} ${TARGET_BACKUP_LOCATION}/data/${table} -n anyday-posthog
+    kubectl cp ${SOURCE_BACKUP_LOCATION}/data/${table} ${TARGET_BACKUP_LOCATION}/data/${table} -n [namespace]
     echo "Table ${table} copied"
 done
